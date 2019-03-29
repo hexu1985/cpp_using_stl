@@ -19,20 +19,20 @@ using namespace std;
 template <typename T>
 class stnode
 {
-   public:
-		// stnode is used to implement the binary search tree class
-		// making the data public simplifies building the class functions
+public:
+	// stnode is used to implement the binary search tree class
+	// making the data public simplifies building the class functions
 
-		T nodeValue;
-			// node data
-		stnode<T> *left, *right, *parent;
-		// child pointers and pointer to the node's parent
+	T nodeValue;
+	// node data
+	stnode<T> *left, *right, *parent;
+	// child pointers and pointer to the node's parent
 
-      // constructor
-		stnode (const T& item, stnode<T> *lptr = NULL, 
-              stnode<T> *rptr = NULL, stnode<T> *pptr = NULL):
-				nodeValue(item), left(lptr), right(rptr), parent(pptr)
-		{}
+	// constructor
+	stnode (const T& item, stnode<T> *lptr = NULL, 
+			stnode<T> *rptr = NULL, stnode<T> *pptr = NULL):
+		nodeValue(item), left(lptr), right(rptr), parent(pptr)
+	{}
 };
 
 // objects hold a formatted label string and the level,column
@@ -51,122 +51,122 @@ class tnodeShadow
 template <typename T>
 class stree
 {
-	public:
+public:
 
 // include the iterator nested classes
 #include "d_stiter.h"
 
-		stree();
-			// constructor. initialize root to NULL and size to 0
-		stree(T *first, T *last);
-			// constructor. insert the elements from the pointer
-			// range [first, last) into the tree
-		stree(const stree<T>& tree);
-			// copy constructor
-		~stree();
-			// destructor
-		stree<T>& operator= (const stree<T>& rhs);
-			// assignment operator
+	stree();
+	// constructor. initialize root to NULL and size to 0
+	stree(T *first, T *last);
+	// constructor. insert the elements from the pointer
+	// range [first, last) into the tree
+	stree(const stree<T>& tree);
+	// copy constructor
+	~stree();
+	// destructor
+	stree<T>& operator= (const stree<T>& rhs);
+	// assignment operator
 
-		iterator find(const T& item);
-			// search for item. if found, return an iterator pointing
-			// at it in the tree; otherwise, return end()
-		const_iterator find(const T& item) const;
-			// constant version
+	iterator find(const T& item);
+	// search for item. if found, return an iterator pointing
+	// at it in the tree; otherwise, return end()
+	const_iterator find(const T& item) const;
+	// constant version
 
-		int empty() const;
-			// indicate whether the tree is empty
-		int size() const;
-			// return the number of data items in the tree
+	int empty() const;
+	// indicate whether the tree is empty
+	int size() const;
+	// return the number of data items in the tree
 
-		pair<iterator, bool> insert(const T& item);
-			// if item is not in the tree, insert it and
-			// return a pair whose iterator component points
-			// at item and whose bool component is true. if item
-			// is in the tree, return a pair whose iterator
-			// component points at the existing item and whose
-			// bool component is false
-			// Postcondition: the tree size increases by 1 if item
-			// is not in the tree
+	pair<iterator, bool> insert(const T& item);
+	// if item is not in the tree, insert it and
+	// return a pair whose iterator component points
+	// at item and whose bool component is true. if item
+	// is in the tree, return a pair whose iterator
+	// component points at the existing item and whose
+	// bool component is false
+	// Postcondition: the tree size increases by 1 if item
+	// is not in the tree
 
-		int erase(const T& item);
-			// if item is in the tree, erase it and return 1;
-			// otherwise, return 0
-			// Postcondition: the tree size decreases by 1 if
-			// item is in the tree
+	int erase(const T& item);
+	// if item is in the tree, erase it and return 1;
+	// otherwise, return 0
+	// Postcondition: the tree size decreases by 1 if
+	// item is in the tree
 
-		void erase(iterator pos);
-			// erase the item pointed to by pos.
-			// Preconditions: the tree is not empty and pos points
-			// to an item in the tree. if the tree is empty, the
-			// function throws the underflowError exception. if the
-			// iterator is invalid, the function throws the referenceError
-			// exception.
-			// Postcondition: the tree size decreases by 1
+	void erase(iterator pos);
+	// erase the item pointed to by pos.
+	// Preconditions: the tree is not empty and pos points
+	// to an item in the tree. if the tree is empty, the
+	// function throws the underflowError exception. if the
+	// iterator is invalid, the function throws the referenceError
+	// exception.
+	// Postcondition: the tree size decreases by 1
 
-		void erase(iterator first, iterator last);
-			// erase all items in the range [first, last).
-			// Precondition: the tree is not empty. if the tree
-			// is empty, the function throws the underflowError
-			// exception.
-			// Postcondition: the size of the tree decreases by
-			// the number of elements in the range [first, last)
+	void erase(iterator first, iterator last);
+	// erase all items in the range [first, last).
+	// Precondition: the tree is not empty. if the tree
+	// is empty, the function throws the underflowError
+	// exception.
+	// Postcondition: the size of the tree decreases by
+	// the number of elements in the range [first, last)
 
-		iterator begin();
-			// return an iterator pointing to the first item
-			// inorder
-		const_iterator begin() const;
-			// constant version
-		iterator end();
-			// return an iterator pointing just past the end of
-			// the tree data
-		const_iterator end() const;
-			// constant version
+	iterator begin();
+	// return an iterator pointing to the first item
+	// inorder
+	const_iterator begin() const;
+	// constant version
+	iterator end();
+	// return an iterator pointing just past the end of
+	// the tree data
+	const_iterator end() const;
+	// constant version
 
-		void displayTree(int maxCharacters);
-			// tree display function. maxCharacters is the
-			// largest number of characters required to draw
-			// the value of a node
+	void displayTree(int maxCharacters);
+	// tree display function. maxCharacters is the
+	// largest number of characters required to draw
+	// the value of a node
 
-	private:
-		stnode<T> *root;
-			// pointer to tree root
-		int treeSize;
-			// number of elements in the tree
+private:
+	stnode<T> *root;
+	// pointer to tree root
+	int treeSize;
+	// number of elements in the tree
 
-		stnode<T> *getSTNode(const T& item,
-									stnode<T> *lptr,stnode<T> *rptr, stnode<T> *pptr);
-			// allocate a new tree node and return a pointer to it.
-			// if memory allocation fails, the function throws the
-			// memoryAllocationError exception
+	stnode<T> *getSTNode(const T& item,
+			stnode<T> *lptr,stnode<T> *rptr, stnode<T> *pptr);
+	// allocate a new tree node and return a pointer to it.
+	// if memory allocation fails, the function throws the
+	// memoryAllocationError exception
 
-		stnode<T> *copyTree(stnode<T> *t);
-			// recursive function used by copy constructor and assignment
-			// operator to assign the current tree as a copy of another tree
+	stnode<T> *copyTree(stnode<T> *t);
+	// recursive function used by copy constructor and assignment
+	// operator to assign the current tree as a copy of another tree
 
-		void deleteTree(stnode<T> *t);
-			// recursive function used by destructor and assignment
-			// operator to delete all the nodes in the tree
+	void deleteTree(stnode<T> *t);
+	// recursive function used by destructor and assignment
+	// operator to delete all the nodes in the tree
 
-		stnode<T> *findNode(const T& item) const;
-			// search for item in the tree. if it is in the tree,
-			// return a pointer to its node; otherwise, return NULL.
-			// used by find() and erase()
+	stnode<T> *findNode(const T& item) const;
+	// search for item in the tree. if it is in the tree,
+	// return a pointer to its node; otherwise, return NULL.
+	// used by find() and erase()
 
-		tnodeShadow *buildShadowTree(stnode<T> *t, int level, int& column);
-			// recursive function that builds a subtree of the shadow tree
-			// corresponding to node t of the tree we are drawing. level is the
-			// level-coordinate for the root of the subtree, and column is the
-			// changing column-coordinate of the tree nodes
+	tnodeShadow *buildShadowTree(stnode<T> *t, int level, int& column);
+	// recursive function that builds a subtree of the shadow tree
+	// corresponding to node t of the tree we are drawing. level is the
+	// level-coordinate for the root of the subtree, and column is the
+	// changing column-coordinate of the tree nodes
 
-		void deleteShadowTree(tnodeShadow *t);
-			// remove the shadow tree from memory after displayTree()
-			// displays the binary search tree
+	void deleteShadowTree(tnodeShadow *t);
+	// remove the shadow tree from memory after displayTree()
+	// displays the binary search tree
 };
 
 template <typename T>
 stnode<T> *stree<T>::getSTNode(const T& item,
-			stnode<T> *lptr,stnode<T> *rptr, stnode<T> *pptr)
+		stnode<T> *lptr,stnode<T> *rptr, stnode<T> *pptr)
 {
 	stnode<T> *newNode;
 
@@ -186,7 +186,7 @@ stnode<T> *stree<T>::copyTree(stnode<T> *t)
 	// if tree branch NULL, return NULL
 	if (t == NULL)
 		return NULL;
-  
+
 	// copy the left branch of root t and assign its root to newlptr
 	newlptr = copyTree(t->left);
 
@@ -299,7 +299,7 @@ stree<T>& stree<T>::operator= (const stree<T>& rhs)
 }
 
 template <typename T>
-stree<T>::iterator stree<T>::find(const T& item)
+typename stree<T>::iterator stree<T>::find(const T& item)
 {
 	stnode<T> *curr;
 
@@ -315,7 +315,7 @@ stree<T>::iterator stree<T>::find(const T& item)
 }
 
 template <typename T>
-stree<T>::const_iterator stree<T>::find(const T& item) const
+typename stree<T>::const_iterator stree<T>::find(const T& item) const
 {
 	stnode<T> *curr;
 
@@ -343,7 +343,7 @@ int stree<T>::size() const
 }
 
 template <typename T>
-pair<stree<T>::iterator, bool> stree<T>::insert(const T& item)
+pair<typename stree<T>::iterator, bool> stree<T>::insert(const T& item)
 {
 	// t is current node in traversal, parent the previous node
 	stnode<T> *t = root, *parent = NULL, *newNode;
@@ -363,7 +363,7 @@ pair<stree<T>::iterator, bool> stree<T>::insert(const T& item)
 		else 
 			t = t->right;
 	}
-    
+
 	// create the new leaf node
 	newNode = getSTNode(item,NULL,NULL,parent);
 
@@ -376,7 +376,7 @@ pair<stree<T>::iterator, bool> stree<T>::insert(const T& item)
 	else
 		// insert as right child     
 		parent->right = newNode;
-  
+
 	// increment size
 	treeSize++;
 
@@ -394,11 +394,11 @@ void stree<T>::erase(iterator pos)
 	stnode<T> *dNodePtr = pos.nodePtr, *pNodePtr, *rNodePtr;
 
 	if (treeSize == 0)
- 		throw
+		throw
 			underflowError("stree erase(): tree is empty");
 
 	if (dNodePtr == NULL)
- 		throw
+		throw
 			referenceError("stree erase(): invalid iterator");
 
 	// assign pNodePtr the address of P
@@ -425,7 +425,7 @@ void stree<T>::erase(iterator pos)
 		// find the node whose value is the smallest of all
 		// nodes whose values are greater than the value in D.
 		// unlink the node from the tree.
-  
+
 		// pOfRNodePtr = pointer to parent of replacement node
 		stnode<T> *pOfRNodePtr = dNodePtr;
 
@@ -440,7 +440,7 @@ void stree<T>::erase(iterator pos)
 			pOfRNodePtr = rNodePtr;
 			rNodePtr = rNodePtr->left;
 		}
-  
+
 		if (pOfRNodePtr == dNodePtr)
 		{
 			// right child of deleted node is the replacement.
@@ -487,7 +487,7 @@ void stree<T>::erase(iterator pos)
 		pNodePtr->left = rNodePtr;
 	else
 		pNodePtr->right = rNodePtr;
-  
+
 	// delete the node from memory and decrement tree size
 	delete dNodePtr;
 	treeSize--;
@@ -513,7 +513,7 @@ template <typename T>
 void stree<T>::erase(iterator first, iterator last)
 {
 	if (treeSize == 0)
- 		throw
+		throw
 			underflowError("stree erase(): tree is empty");
 
 	iterator p = first;
@@ -535,7 +535,7 @@ void stree<T>::erase(iterator first, iterator last)
 }
 
 template <typename T>
-stree<T>::iterator stree<T>::begin()
+typename stree<T>::iterator stree<T>::begin()
 {
 	stnode<T> *curr = root;
 
@@ -550,7 +550,7 @@ stree<T>::iterator stree<T>::begin()
 }
 
 template <typename T>
-stree<T>::const_iterator stree<T>::begin() const
+typename stree<T>::const_iterator stree<T>::begin() const
 {
 	const stnode<T> *curr = root;
 
@@ -565,14 +565,14 @@ stree<T>::const_iterator stree<T>::begin() const
 }
 
 template <typename T>
-stree<T>::iterator stree<T>::end()
+typename stree<T>::iterator stree<T>::end()
 {
 	// end indicated by an iterator with NULL stnode pointer
 	return iterator(NULL, this);
 }
 
 template <typename T>
-stree<T>::const_iterator stree<T>::end() const
+typename stree<T>::const_iterator stree<T>::end() const
 {
 	// end indicated by an iterator with NULL stnode pointer
 	return const_iterator(NULL, this);
@@ -632,18 +632,18 @@ void stree<T>::displayTree(int maxCharacters)
 	// use during the level order scan of the shadow tree
 	tnodeShadow *currNode;
 
-   // store siblings of each tnodeShadow object in a queue so that
+	// store siblings of each tnodeShadow object in a queue so that
 	// they are visited in order at the next level of the tree
-   queue<tnodeShadow *> q;
+	queue<tnodeShadow *> q;
 
-   // insert the root in the queue and set current level to 0
-   q.push(shadowRoot);
-   
-   // continue the iterative process until the queue is empty
-   while(!q.empty())
-   {
-      // delete front node from queue and make it the current node
-      currNode = q.front();
+	// insert the root in the queue and set current level to 0
+	q.push(shadowRoot);
+
+	// continue the iterative process until the queue is empty
+	while(!q.empty())
+	{
+		// delete front node from queue and make it the current node
+		currNode = q.front();
 		q.pop();
 
 		// if level changes, output a newline
@@ -655,11 +655,11 @@ void stree<T>::displayTree(int maxCharacters)
 		}
 
 		// if a left child exists, insert the child in the queue
-      if(currNode->left != NULL)
+		if(currNode->left != NULL)
 			q.push(currNode->left);
 
 		// if a right child exists, insert the child in the queue
-      if(currNode->right != NULL)
+		if(currNode->right != NULL)
 			q.push(currNode->right);
 
 		// output formatted node label
@@ -670,7 +670,7 @@ void stree<T>::displayTree(int maxCharacters)
 		}
 		cout << setw(colWidth) << currNode->nodeValueStr;
 		currCol++;
-   }
+	}
 	cout << endl;
 
 	// delete the shadow tree

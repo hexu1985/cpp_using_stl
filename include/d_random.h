@@ -6,27 +6,27 @@ using namespace std;
 // generate random numbers
 class randomNumber
 {
-	public:
-		// initialize the random number generator
-		randomNumber(long s = 0);
+public:
+	// initialize the random number generator
+	randomNumber(long s = 0);
 
-		// return a 32-bit random integer m, 1 <= m <= 2^31-2
-		long random();
+	// return a 32-bit random integer m, 1 <= m <= 2^31-2
+	long random();
 
-		// return a 32-bit random integer m, 0 <= m <= n-1,
-		// where n <= 2^31-1
-		long random(long n);
+	// return a 32-bit random integer m, 0 <= m <= n-1,
+	// where n <= 2^31-1
+	long random(long n);
 
-		// return a real number x, 0 <= x < 1
-		double frandom();
+	// return a real number x, 0 <= x < 1
+	double frandom();
 
-	private:
-		static const long A;
-		static const long M;
-		static const long Q;
-		static const long R;
+private:
+	static const long A;
+	static const long M;
+	static const long Q;
+	static const long R;
 
-		long seed;
+	long seed;
 };
 
 const long randomNumber::A = 48271;
@@ -65,9 +65,9 @@ long randomNumber::random()
 	long tmpSeed = A * ( seed % Q ) - R * ( seed / Q );
 
 	if( tmpSeed >= 0 )
-		 seed = tmpSeed;
+		seed = tmpSeed;
 	else
-		 seed = tmpSeed + M;
+		seed = tmpSeed + M;
 
 	return seed;
 }

@@ -159,7 +159,7 @@ void writeVector(const vector<T>& v)
 template <typename T>
 void writeList(const list<T>& alist, const string& separator = "  ")
 {
-	list<T>::const_iterator  iter;
+	typename list<T>::const_iterator  iter;
 
 	for (iter = alist.begin(); iter != alist.end(); iter++)
 		cout << *iter << separator;
@@ -169,7 +169,7 @@ void writeList(const list<T>& alist, const string& separator = "  ")
 template <typename T>
 void writeSTree(const stree<T>& t, const string& separator = "  ")
 {
-	stree<T>::const_iterator iter = t.begin();
+	typename stree<T>::const_iterator iter = t.begin();
 
 	while (iter != t.end())
 	{
@@ -196,7 +196,7 @@ void writeContainer(Iterator first, Iterator last,
 template <typename Key, typename T>
 void writeMap(const map<Key,T>& m, const string& separator = "  ")
 {
-	map<Key, T>::const_iterator iter = m.begin();
+	typename map<Key, T>::const_iterator iter = m.begin();
 
 	while(iter != m.end())
 	{
