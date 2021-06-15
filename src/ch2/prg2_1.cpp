@@ -46,51 +46,51 @@ int main()
 }
 
 /*
-   Run 1:
+Run 1:
 
-   Enter the month and year: 2 2003
+Enter the month and year: 2 2003
 
-   February 2003
-   Sun    Mon    Tue    Wed    Thu    Fri    Sat
-   1
-   2      3      4      5      6      7      8
-   9     10     11     12     13     14     15
-   16     17     18     19     20     21     22
-   23     24     25     26     27     28
+                     February 2003
+    Sun    Mon    Tue    Wed    Thu    Fri    Sat
+                                                1
+      2      3      4      5      6      7      8
+      9     10     11     12     13     14     15
+     16     17     18     19     20     21     22
+     23     24     25     26     27     28
 
-   Run 2:
+Run 2:
 
-   Enter the month and year: 2 2004
+Enter the month and year: 2 2004
 
-   February 2004
-   Sun    Mon    Tue    Wed    Thu    Fri    Sat
-   1      2      3      4      5      6      7
-   8      9     10     11     12     13     14
-   15     16     17     18     19     20     21
-   22     23     24     25     26     27     28
-   29
+                     February 2004
+    Sun    Mon    Tue    Wed    Thu    Fri    Sat
+      1      2      3      4      5      6      7
+      8      9     10     11     12     13     14
+     15     16     17     18     19     20     21
+     22     23     24     25     26     27     28
+     29
 
-   Run 3:
+Run 3:
 
-   Enter the month and year: 3 2004
+Enter the month and year: 3 2004
 
-   March 2004
-   Sun    Mon    Tue    Wed    Thu    Fri    Sat
-   1      2      3      4      5      6
-   7      8      9     10     11     12     13
-   14     15     16     17     18     19     20
-   21     22     23     24     25     26     27
-   28     29     30     31
+                        March 2004
+    Sun    Mon    Tue    Wed    Thu    Fri    Sat
+             1      2      3      4      5      6
+      7      8      9     10     11     12     13
+     14     15     16     17     18     19     20
+     21     22     23     24     25     26     27
+     28     29     30     31
 
-   Run 4:
+Run 4:
 
-   Enter the month and year: 8 1899
+Enter the month and year: 8 1899
 
-   calendar setYear(): 1899 is prior to 1900
+calendar setYear(): 1899 is prior to 1900
 
-   Run 5:
+Run 5:
 
-   Enter the month and year: 13 1938
+Enter the month and year: 13 1938
 
-   calendar setMonth(): 13 invalid month
-   */
+calendar setMonth(): 13 invalid month
+*/
