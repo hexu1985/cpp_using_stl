@@ -40,8 +40,8 @@ int binSearch(const vector<T>& v, int first, int last, const T& target);
 // iterator range [first, last). return an iterator pointing
 // at the target in the list or last if target is not found
 template <typename T>
-list<T>::iterator seqSearch(list<T>::iterator first,
-									 list<T>::iterator last, const T& target);
+typename list<T>::iterator seqSearch(typename list<T>::iterator first,
+									 typename list<T>::iterator last, const T& target);
 
 // perform the sequential search for target in the container
 // iterator range [first, last). return an iterator pointing
@@ -161,11 +161,11 @@ int binSearch(const vector<T>& v, int first, int last, const T& target)
 }
 
 template <typename T>
-list<T>::iterator seqSearch(list<T>::iterator first,
-									 list<T>::iterator last, const T& target)
+typename list<T>::iterator seqSearch(typename list<T>::iterator first,
+									 typename list<T>::iterator last, const T& target)
 {
 	// start at location first
-	list<T>::iterator iter = first;
+	typename list<T>::iterator iter = first;
 
 	// compare list elements with item until either
 	// we arrive at last or locate item 

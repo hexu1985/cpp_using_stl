@@ -18,53 +18,53 @@ int fibiter(int n);
 
 int main()
 {
-	timer t;			// time recursive version
-	int fib_45;
-	
-	// evaluate fib() using iteration and recursion
-	cout << "Value of fib(45) by iteration is ";
-	cout << fibiter(45) << endl;
+    timer t;			// time recursive version
+    int fib_45;
 
-	cout << "Value of fib(45) by recursion is ";
-	// start/stop timer object for recursive process
-	t.start();
-	fib_45 = fib(45);
-	t.stop();
+    // evaluate fib() using iteration and recursion
+    cout << "Value of fib(45) by iteration is ";
+    cout << fibiter(45) << endl;
 
-	cout << fib_45 << endl;
-	cout << "   Time required by recursive version is " << t.time() 
-  << " sec" <<endl;
+    cout << "Value of fib(45) by recursion is ";
+    // start/stop timer object for recursive process
+    t.start();
+    fib_45 = fib(45);
+    t.stop();
 
-	return 0;
+    cout << fib_45 << endl;
+    cout << "   Time required by recursive version is " << t.time() 
+        << " sec" <<endl;
+
+    return 0;
 }
 
 int fib(int n)
 {
-	if (n <= 1)								// stopping conditions
-		return n;
-	else
-		return fib(n-1) + fib(n-2);	// recursive step
+    if (n <= 1)								// stopping conditions
+        return n;
+    else
+        return fib(n-1) + fib(n-2);	// recursive step
 }
 
 int fibiter(int n)
 {
-	// integers to store previous two Fibonacci value 
-	int oneback = 1, twoback = 0, current;
-	int i;
+    // integers to store previous two Fibonacci value 
+    int oneback = 1, twoback = 0, current;
+    int i;
 
-	// return is immediate for first two numbers
-	if (n <= 1)
-		return n;
-	else
-		// compute successive terms beginning at 3
-		for (i = 2; i <= n; i++)
-		{
-			current = oneback + twoback;
-			twoback = oneback;	// update for next calculation
-			oneback = current;
-		}
+    // return is immediate for first two numbers
+    if (n <= 1)
+        return n;
+    else
+        // compute successive terms beginning at 3
+        for (i = 2; i <= n; i++)
+        {
+            current = oneback + twoback;
+            twoback = oneback;	// update for next calculation
+            oneback = current;
+        }
 
-	return current;			
+    return current;			
 }
 
 /*

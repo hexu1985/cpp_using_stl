@@ -21,54 +21,55 @@
 using namespace std;
 
 int main()
-{	const int ARRAY_SIZE = 100000, TARGET_SIZE = 50000;
+{	
+    const int ARRAY_SIZE = 100000, TARGET_SIZE = 50000;
 
-	// arrays for the search
-   int list1[ARRAY_SIZE], list2[ARRAY_SIZE], targetList[TARGET_SIZE];
-	int i;
+    // arrays for the search
+    int list1[ARRAY_SIZE], list2[ARRAY_SIZE], targetList[TARGET_SIZE];
+    int i;
 
-	// t used for timing the search algorithms
-	timer t;
-	// random number object
-	randomNumber rnd;
+    // t used for timing the search algorithms
+    timer t;
+    // random number object
+    randomNumber rnd;
 
-	// initialize the arrays with random numbers in the
-   // range 0 to 999,999 
-   for (i = 0; i < ARRAY_SIZE; i++)
-		list1[i] = list2[i] = rnd.random(1000000);
+    // initialize the arrays with random numbers in the
+    // range 0 to 999,999 
+    for (i = 0; i < ARRAY_SIZE; i++)
+        list1[i] = list2[i] = rnd.random(1000000);
 
-	// initialize targetList with random numbers in the
-   // same range 0 to 999,999 
-	for (i=0;i < TARGET_SIZE; i++)
-		targetList[i] = rnd.random(1000000);
+    // initialize targetList with random numbers in the
+    // same range 0 to 999,999 
+    for (i=0;i < TARGET_SIZE; i++)
+        targetList[i] = rnd.random(1000000);
 
-	// sort list2
-   cout << "Timing the Selection Sort" << endl;
-	t.start();		// start timer
-	selectionSort(list2,ARRAY_SIZE);
-	t.stop();		// stop timer
-	cout << "Selection Sort takes " << t.time()
-		  << " seconds." << endl;
+    // sort list2
+    cout << "Timing the Selection Sort" << endl;
+    t.start();		// start timer
+    selectionSort(list2,ARRAY_SIZE);
+    t.stop();		// stop timer
+    cout << "Selection Sort takes " << t.time()
+        << " seconds." << endl;
 
-   cout << endl << "Timing the Sequential Search" << endl;
-	t.start();		// start timer
-	// perform sequential search with elements from list2
- 	for (i = 0; i < TARGET_SIZE; i++)
-		seqSearch(list1,0,ARRAY_SIZE,targetList[i]);
-	t.stop();		// stop timer
-	cout << "Sequential Search takes " << t.time()
-		  << " seconds." << endl;
+    cout << endl << "Timing the Sequential Search" << endl;
+    t.start();		// start timer
+    // perform sequential search with elements from list2
+    for (i = 0; i < TARGET_SIZE; i++)
+        seqSearch(list1,0,ARRAY_SIZE,targetList[i]);
+    t.stop();		// stop timer
+    cout << "Sequential Search takes " << t.time()
+        << " seconds." << endl;
 
-	cout << endl << "Timing the Binary Search" << endl;
-	t.start();		// start timer
-	// perform binary search with elements from list1
- 	for (i = 0; i < TARGET_SIZE; i++)
-		binSearch(list2,0,ARRAY_SIZE,targetList[i]);
-	t.stop();		// stop timer
-	cout << "Binary Search takes " << t.time()
-		  << " seconds." << endl;
+    cout << endl << "Timing the Binary Search" << endl;
+    t.start();		// start timer
+    // perform binary search with elements from list1
+    for (i = 0; i < TARGET_SIZE; i++)
+        binSearch(list2,0,ARRAY_SIZE,targetList[i]);
+    t.stop();		// stop timer
+    cout << "Binary Search takes " << t.time()
+        << " seconds." << endl;
 
-	return 0;
+    return 0;
 }
 
 /*

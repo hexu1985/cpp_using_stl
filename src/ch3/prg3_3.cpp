@@ -14,42 +14,42 @@ void hanoi(int n, const string& initNeedle,
 
 int main()
 {
-   // number of disks and the needle names
-   int n;
-   string beginneedle  = "A",
-          middleneedle = "B",
-          endneedle    = "C";
+    // number of disks and the needle names
+    int n;
+    string beginneedle  = "A",
+           middleneedle = "B",
+           endneedle    = "C";
 
-   // prompt for n and solve the puzzle for n disks
-   cout << "Enter the number of disks: ";
-   cin >> n;
-   cout << "The solution for n = " << n << endl;
-   hanoi(n, beginneedle, endneedle, middleneedle);
+    // prompt for n and solve the puzzle for n disks
+    cout << "Enter the number of disks: ";
+    cin >> n;
+    cout << "The solution for n = " << n << endl;
+    hanoi(n, beginneedle, endneedle, middleneedle);
 
-	return 0;
+    return 0;
 }
 
 void hanoi(int n, const string& initNeedle,
-			  const string& endNeedle, const string& tempNeedle)
+        const string& endNeedle, const string& tempNeedle)
 {
-   // stopping condition: move one disk
-   if (n == 1)
-      cout 	<< "move " << initNeedle << " to "
-           	<< endNeedle << endl;
-   else
-   {
-      // move takes n-1 disks from initNeedle to
-		// tempNeedle using endNeedle for temporary storage
-      hanoi(n-1,initNeedle,tempNeedle,endNeedle);
+    // stopping condition: move one disk
+    if (n == 1)
+        cout << "move " << initNeedle << " to " 
+            << endNeedle << endl;
+    else
+    {
+        // move takes n-1 disks from initNeedle to
+        // tempNeedle using endNeedle for temporary storage
+        hanoi(n-1,initNeedle,tempNeedle,endNeedle);
 
-      // move largest disk to endNeedle
-      cout 	<< "move " << initNeedle << " to "
-           	<< endNeedle << endl;
+        // move largest disk to endNeedle
+        cout << "move " << initNeedle << " to "
+            << endNeedle << endl;
 
-      // move takes n-1 disks from tempNeedle to
-		// endNeedle using initNeedle for temporary storage
-      hanoi(n-1,tempNeedle,endNeedle,initNeedle);
-   }
+        // move takes n-1 disks from tempNeedle to
+        // endNeedle using initNeedle for temporary storage
+        hanoi(n-1,tempNeedle,endNeedle,initNeedle);
+    }
 }
 
 /*
