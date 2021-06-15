@@ -78,7 +78,7 @@ date::date (int mm, int dd, int yyyy):
 void date::writeShortDate () const
 {
 	// save current format flags and fill character
-	auto currentFlags = cout.flags();
+	ios_base::fmtflags currentFlags = cout.flags();
 	char currentFill = cout.fill();
 
 	// enable right justification
