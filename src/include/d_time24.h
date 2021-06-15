@@ -162,7 +162,7 @@ void time24::writeTime() const
     // help system for details
 
     // save current format flags and fill character
-    auto currentFlags = cout.flags();
+    ios_base::fmtflags currentFlags = cout.flags();
     char currentFill = cout.fill();
 
     // set fill char to ' ' and enable right justification
@@ -283,7 +283,7 @@ ostream& operator<< (ostream& ostr, const time24& t)
     // help system for details
 
     // save current format flags and fill character
-    auto currentFlags = ostr.flags();
+    ios_base::fmtflags currentFlags = ostr.flags();
     char currentFill = ostr.fill();
 
     // set fill char to ' ' and enable right justification
