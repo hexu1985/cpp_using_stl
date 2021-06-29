@@ -18,8 +18,18 @@
 using namespace std;
 
 template <typename T>
-dynamicClass<T> demo(dynamicClass<T> one,
-							dynamicClass<T>& two, const T& m);
+dynamicClass<int> demo(dynamicClass<T> one, dynamicClass<T>& two, const T& m)
+{
+	// calls the constructor (member1 = m, *member2 = m)
+	dynamicClass<T> obj(m,m);
+
+	// a copy of obj is made and returned as the
+	// value of the function
+	return obj;
+
+	// the temporary object one is destroyed upon
+	// return from demo()
+}
 
 int main()
 {
@@ -42,20 +52,6 @@ int main()
 
 	// all remaining objects are destroyed upon program exit.
 	return 0;
-}
-
-template <typename T>
-dynamicClass<int> demo(dynamicClass<T> one, dynamicClass<T>& two, const T& m)
-{
-	// calls the constructor (member1 = m, *member2 = m)
-	dynamicClass<T> obj(m,m);
-
-	// a copy of obj is made and returned as the
-	// value of the function
-	return obj;
-
-	// the temporary object one is destroyed upon
-	// return from demo()
 }
 
 /*

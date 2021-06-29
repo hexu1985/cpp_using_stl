@@ -8,71 +8,71 @@ using namespace std;
 template <typename T>
 class miniVector
 {
-	public:
-		miniVector(int size = 0);
-			// constructor.
-			// Postconditions: allocates array with size number of elements
-			// and capacity. elements are initialized to T(), the default
-			// value for type T
+public:
+    miniVector(int size = 0);
+    // constructor.
+    // Postconditions: allocates array with size number of elements
+    // and capacity. elements are initialized to T(), the default
+    // value for type T
 
-		miniVector(const miniVector<T>& obj);
-			// copy constructor
-			// Postcondition: creates current vector as a copy of obj
+    miniVector(const miniVector<T>& obj);
+    // copy constructor
+    // Postcondition: creates current vector as a copy of obj
 
-		~miniVector();
-			// destructor
-			// Postcondition: the dynamic array is destroyed
+    ~miniVector();
+    // destructor
+    // Postcondition: the dynamic array is destroyed
 
-		miniVector& operator= (const miniVector<T>& rhs);
-			// assignment operator.
-			// Postcondition: current vector holds the same data
-			// as rhs
+    miniVector& operator= (const miniVector<T>& rhs);
+    // assignment operator.
+    // Postcondition: current vector holds the same data
+    // as rhs
 
-		T& back();
-			// return the element at the rear of the vector.
-			// Precondition: the vector is not empty. if vector
-			// is empty, throws the underflowError exception
+    T& back();
+    // return the element at the rear of the vector.
+    // Precondition: the vector is not empty. if vector
+    // is empty, throws the underflowError exception
 
-		const T& back() const;
-			// const version used when miniVector object is a constant
+    const T& back() const;
+    // const version used when miniVector object is a constant
 
-		T& operator[] (int i);
-			// provides general access to elements using an index.
-			// Precondition: 0 <= i < vSize. if the index is out
-			// of range, throws the indexRangeError exception
+    T& operator[] (int i);
+    // provides general access to elements using an index.
+    // Precondition: 0 <= i < vSize. if the index is out
+    // of range, throws the indexRangeError exception
 
-		const T& operator[] (int i) const;
-			// const version used when miniVector object is a constant
+    const T& operator[] (int i) const;
+    // const version used when miniVector object is a constant
 
-		void push_back(const T& item);
-			// insert item at the rear of the vector.
-			// Postcondition: the vector size is increased by 1
+    void push_back(const T& item);
+    // insert item at the rear of the vector.
+    // Postcondition: the vector size is increased by 1
 
-		void pop_back();
-			// remove element at the rear of the vector.
-			// Precondition: vector is not empty. if the vector is
-			// empty, throws the underflowError exception
+    void pop_back();
+    // remove element at the rear of the vector.
+    // Precondition: vector is not empty. if the vector is
+    // empty, throws the underflowError exception
 
-		int size() const;
-			// return current list size
+    int size() const;
+    // return current list size
 
-		bool empty() const;
-			// return true if vector is empty and false otherwise
+    bool empty() const;
+    // return true if vector is empty and false otherwise
 
-		int capacity() const;
-			// return the current capacity of the vector
+    int capacity() const;
+    // return the current capacity of the vector
 
-   private:
-		int vCapacity;		// amount of available space
-		int vSize;			// number of elements in the list
-		T *vArr;				// the dynamic array
+private:
+    int vCapacity;		// amount of available space
+    int vSize;			// number of elements in the list
+    T *vArr;				// the dynamic array
 
-		void reserve(int n, bool copy);
-			// called by public functions only if n > vCapacity. expands
-			// the vector capacity to n elements, copies the existing
-			// elements to the new space if copy == true, and deletes
-			// the old dynamic array. throws the memoryAllocationError
-			// exception if memory allocation fails
+    void reserve(int n, bool copy);
+    // called by public functions only if n > vCapacity. expands
+    // the vector capacity to n elements, copies the existing
+    // elements to the new space if copy == true, and deletes
+    // the old dynamic array. throws the memoryAllocationError
+    // exception if memory allocation fails
 };
 
 // set the capacity to n elements
